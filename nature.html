@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Breath in Almaty (Nature Escape) </title>
+  <style>
+    /* 별:html상에 있는 요소에게 모두 적용. 기본 margin padding값 초기화*/
+    * {
+      margin: 0;
+      padding: 0;
+      /* 박스 안으로. div 크기 변하지 않음 */
+      box-sizing: border-box;
+    }
+
+    ::-webkit-scrollbar {
+      width: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      height: 80px;
+      width: 90%;
+      left: 50%;
+      transform: translateX(-50%);
+      position: fixed;
+      background-color: white;
+      /* 흰색 배경 */
+      border-radius: 100px;
+      /* 둥근 모양 */
+      top: 30px;
+      padding: 10px 30px;
+      /* 안쪽 여백 */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      /* 부드러운 그림자 (선택사항) */
+      overflow: hidden;
+      /* 🧊 글래스모피즘 핵심 부분 */
+      background: rgba(255, 255, 255, 0.25);
+      /* 반투명 흰색 */
+      backdrop-filter: blur(10px);
+      /* 배경 블러 처리 */
+      -webkit-backdrop-filter: blur(10px);
+      /* 사파리 호환용 */
+
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      /* 유리 느낌의 테두리 */
+      border-radius: 100px;
+
+      padding: 10px 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      /* 부드러운 그림자 */
+      z-index: 10;
+    }
+
+    ::-webkit-scrollbar {
+      width: 0;
+    }
+
+    body {
+      height: 100vh;
+      /*강제로 늘릴 수 있음*/
+      background-image: url('nature_image2.png');
+      /* 이미지 파일 경로 */
+      background-size: cover;
+      /* 화면에 꽉 차게 */
+      background-repeat: no-repeat;
+      /* 반복 방지 */
+      background-position: center center;
+      /* 화면 중앙 정렬 */
+    }
+
+    .nav {
+      display: flex;
+      margin: 20px 60px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      /* text-shadow: 0px 2px 5px rgb(178, 178, 178); */
+      color: #ffffff;
+      font-family: 'Times New Roman', Times, serif;
+      transition: 0.3s;
+    }
+
+    .menu {
+      display: flex;
+      height: 40px;
+      margin-right: 40px;
+      margin-left: 40px;
+    }
+
+    /* a:hover{
+        color: #3caac3;
+        transition: 0.3s;
+      } */
+
+    .logo {
+      height: 50px;
+      width: 200px;
+      background-position: center;
+      transform: translateY(5px);
+      background-image: url(logo.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    /* 텍스트 */
+
+    .main {
+      height: 100vh;
+      align-items: center;
+      padding-top: 200px;
+      width: 85%;
+      margin: 0px auto;
+    }
+
+    .main2 {
+      height: 100vh;
+      align-items: center;
+      padding-top: 0px;
+      width: 85%;
+      margin: 0px auto;
+    }
+
+    .text-box {
+      max-width: 1000px;
+      /* 텍스트 영역 너비 제한 */
+    }
+
+    .maintext {
+      font-size: 40px;
+      font-weight: bold;
+      color: #222;
+      margin-bottom: 20px;
+    }
+
+    .subtext {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* 이미지 카드 
+
+      .course-card {
+          width: 1272px;
+          height: 300px;
+          overflow: hidden;
+      }
+
+      .course-card-img{
+        width: 1272px;
+      } */
+
+    /* 루트 이미지카드 */
+    body {
+      font-family: 'Pretendard variable', sans-serif;
+      background-color: #fff;
+      margin: 0;
+      padding: 40px;
+      color: #333;
+    }
+
+    @font-face {
+      font-family: 'mago';
+      src: url('나눔손글씨 마고체.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    .maintext2 {
+      font-size: 16px;
+      color: #fff;
+      width: 90%;
+      /* 헤더와 폭 맞추기 */
+      margin: 0 auto;
+      /* 중앙 정렬 */
+      margin-bottom: 50px;
+      font-family: "mago";
+      text-align: center;
+      line-height: normal;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: space-between;
+      /* 카드들 사이 간격 균등 + 양쪽 끝 정렬 */
+      flex-wrap: wrap;
+      padding: auto;
+      width: 90%;
+      /* 헤더와 폭 맞추기 */
+      margin: 0 auto;
+      /* 중앙 정렬 */
+    }
+
+    .course-card-imgbox {
+      width: 300px;
+      border-radius: 12px;
+      height: 430px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      background: #fff;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      opacity: 0.7;
+      /* 기본 상태는 살짝 투명하게 */
+    }
+
+    .course-card-imgbox:hover {
+      transform: translateY(-5px);
+      opacity: 1;
+      /* 마우스 올리면 선명하게 */
+    }
+
+
+    .courseimgs {
+      height: 320px;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .card-content h3 {
+      font-size: 15px;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    /* .rating {
+      color: #f7b500;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }*/
+    .coursetitle {
+      color: #555
+    }
+
+    .category {
+      color: rgb(144, 144, 144);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .product-section {
+      margin-top: 130px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="index.html">
+      <!-- <image src="logo.png" class="logo"></image> -->
+      <div class="logo">
+      </div>
+    </a>
+    <ul class="nav">
+      <li class="menu"><a href="nature.html">Nature Escape</a></li>
+      <li class="menu"><a href="favorite.html">Favorite</a></li>
+      <li class="menu"><a href="healing.html">Healing Food</a></li>
+      <li class="menu"><a href="blog.html">Travelog</a></li>
+      <li class="menu"><a href="song.html">Song</a></li>
+    </ul>
+
+  </header>
+
+  <!-- 루트 이미지카드 -->
+  <section class="product-section">
+    <p class="maintext2" class="course"><strong>
+        < 8월 6일, 한국으로 돌아가는 비행기 안에서 쓴 일기>
+      </strong><br><br>" 낯선 곳을 여행한다는 건, 결국 내가 어떤 사람인지 조금 더 알게 되는 과정이 아닐까?
+      <br>나를 짓누르는 무거운 것들로부터 자유로워지고 싶을 때, 어딘가로 떠나고 싶어진다. 그럴 때는 낯선 곳의 공기와 풍경만으로도 충분히 위로가 된다.
+      <br>마음이 시끄러운 나에게 잔잔한 풍경의 알마티는 '잠시 뭠춰 숨을 고르는 법' 을 알려줬다. 내가 쉼을 얻었던 곳에서, 또다른 누군가가 살아갈 힘을 얻었으면 좋겠다. " </p>
+
+    <div class="card-container">
+      <div class="course-card-imgbox">
+        <img src="Charyn.jpg" alt="차른 캐니언" class="courseimgs">
+        <div class="card-content">
+          <h3 class="coursetitle">차른 캐니언</h3>
+          <!-- <p class="rating">⭐ 5 / 5</p> -->
+          <p class="category">붉은 협곡을 따라 걷다 보면, 세상이 조금은 천천히 흐르는 기분이 든다. 미국의 그랜드 캐니언과 매우 닮아있다. </p>
+        </div>
+      </div>
+
+      <div class="course-card-imgbox">
+        <a href="nature2.html">
+          <img src="assy.jpg" alt="아씨고원" class="courseimgs">
+        </a>
+        <div class="card-content">
+          <h3 class="coursetitle">아씨고원</h3>
+          <!-- <p class="rating">⭐ 5 / 5</p> -->
+          <p class="category">2,500m 고지대에서 보는 풍경은 이루 말할 수 없을 정도로 아름답다. 여기선 답답했던 마음도 뻥 - 뚫린다.</p>
+        </div>
+      </div>
+
+      <div class="course-card-imgbox">
+        <img src="bigalmaty.jpg" alt="빅 알마티 호수" class="courseimgs">
+        <div class="card-content">
+          <h3 class="coursetitle">빅 알마티 호수</h3>
+          <!-- <p class="rating">⭐ 5 / 5</p> -->
+          <p class="category">푸른 하늘과 드넓은 산, 그리고 에메랄드 빛의 호수를 한 눈에 담는 순간 벅차오른 감정은 감히 설명 할 수 없다.</p>
+        </div>
+      </div>
+
+      <div class="course-card-imgbox">
+        <img src="Chimbulak.JPG" alt="침블락" class="courseimgs">
+        <div class="card-content">
+          <h3 class="coursetitle">침블락</h3>
+          <!-- <p class="rating">⭐ 5 / 5</p> -->
+          <p class="category">리프트를 타고 오르는 동안 마주친 카자흐스탄 사람들의 인사 한마디에 괜히 마음이 따뜻해졌던 하루.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

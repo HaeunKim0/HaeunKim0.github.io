@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Breath in Almaty (Healing Food) </title>
+  <style>
+    /* 별:html상에 있는 요소에게 모두 적용. 기본 margin padding값 초기화*/
+    * {
+      margin: 0;
+      padding: 0;
+      /* 박스 안으로. div 크기 변하지 않음 */
+      box-sizing: border-box;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      height: 80px;
+      width: 90%;
+      left: 50%;
+      transform: translateX(-50%);
+      position: fixed;
+      background-color: rgb(255, 255, 255);
+      /* 흰색 배경 */
+      border-radius: 100px;
+      /* 둥근 모양 */
+      top: 30px;
+      padding: 10px 30px;
+      /* 안쪽 여백 */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      /* 부드러운 그림자 (선택사항) */
+      overflow: hidden;
+      /* 🧊 글래스모피즘 핵심 부분 */
+      background: rgba(255, 255, 255, 0.25);
+      /* 반투명 흰색 */
+      backdrop-filter: blur(10px);
+      /* 배경 블러 처리 */
+      -webkit-backdrop-filter: blur(10px);
+      /* 사파리 호환용 */
+
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      /* 유리 느낌의 테두리 */
+      border-radius: 100px;
+
+      padding: 10px 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      /* 부드러운 그림자 */
+      z-index: 10;
+    }
+
+    body {
+      /* height: 300%; */
+      /*강제로 늘림*/
+      background-image: url(localbackimg.jpg);
+      /* 이미지 파일 경로 */
+      background-size: cover;
+      /* 화면에 꽉 차게 */
+      background-repeat: no-repeat;
+      /* 반복 방지 */
+      background-position: center center;
+      /* 화면 중앙 정렬 */
+    }
+
+    ::-webkit-scrollbar {
+      width: 0;
+    }
+
+
+    .nav {
+      display: flex;
+      margin: 20px 60px;
+
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: #ffffff;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .menu {
+      display: flex;
+      height: 40px;
+      margin-right: 40px;
+      margin-left: 40px;
+    }
+
+    .logo {
+      height: 50px;
+      width: 200px;
+      background-position: center;
+      transform: translateY(5px);
+      background-image: url(logo.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    /* .logo:hover{
+      background-image: url(logo_3caac3.png);
+    } */
+
+    /* 큰 틀 */
+    .container {
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      /* display: block을 쓸 수 는 있는만, 위 형식을 쓰면 자식 요소들 컨트롤 가능 */
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: auto;
+      padding-top: 20px;
+      padding-bottom: 0px;
+      gap: 30vh;
+      z-index: 1;
+    }
+
+    .logo_mid {
+      height: 150px;
+      display: block;
+      /* 이미지를 블록화 → 중앙 정렬 가능 */
+      margin: 0 auto;
+      /* 중앙 정렬 */
+
+    }
+
+    .photo {
+      width: 600px;
+      height: 350px;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .placeA {
+      background-image: url("navat.jpg");
+    }
+
+    .placeA:hover {
+      background-image: url("navat2.jpg");
+      transition: all 0.3s ease-in-out;
+      /* 🔹 부드럽게 전환 */
+    }
+
+    .placeB:hover {
+      background-image: url("linebrew2.jpg");
+      transition: all 0.3s ease-in-out;
+      /* 🔹 부드럽게 전환 */
+    }
+
+    .placeB {
+      background-image: url("linebrew.jpg");
+    }
+
+    .placeC:hover {
+      background-image: url("shashlik2.jpg");
+      transition: all 0.3s ease-in-out;
+      /* 🔹 부드럽게 전환 */
+    }
+
+    .placeC {
+      background-image: url("shashlik.jpg");
+    }
+
+    .placeC:hover {
+      background-image: url("shashlik2.jpg");
+    }
+
+    .box {
+      width: 90%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      gap: 5vw;
+    }
+
+    .phototext {
+      display: flex;
+      justify-content: end;
+      flex-direction: column;
+      /* align-items: end; 쓰면 오른쪽 정렬 (텍스트 정렬과 다름. 요소 정렬)*/
+      width: 600px;
+      height: 350px;
+      color: #999;
+      font-size: 14px;
+      font-family: 'Pretendard variable', sans-serif;
+      line-height: 1.6;
+      /* 줄 간격 1.6배 */
+      letter-spacing: 0.2px;
+      /* 자간 살짝 넓혀 자연스럽게 */
+      color: #dfdfdf;
+    }
+
+    .phototext2 {
+      display: flex;
+      justify-content: end;
+      flex-direction: column;
+      align-items: start;
+      /* 쓰면 오른쪽 정렬 (텍스트 정렬과 다름. 요소 정렬) */
+      width: 600px;
+      height: 350px;
+      color: #999;
+      font-size: 14px;
+      font-family: 'Pretendard variable', sans-serif;
+      line-height: 1.6;
+      /* 줄 간격 1.6배 */
+      letter-spacing: 0.2px;
+      /* 자간 살짝 넓혀 자연스럽게 */
+      color: #dfdfdf;
+    }
+
+    /* 중앙텍스트 */
+
+    .maintext {
+      height: 100vh;
+      /* vh(view height): 화면의 높이 값 만큼 설정 / 
+                        내 작업 화면: 100vw x 100vh = 1497 x 814px*/
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('almatymain.jpg');
+      background-size: cover;
+      color: #ffffff;
+    }
+
+    .textwrap {
+      height: 78px;
+      /* margin: 0px auto; 좌우값 자동으로 똑같이 맞춰주는 기능 */
+      position: relative;
+      top: -15px;
+    }
+
+    .main {
+      font-size: 48px;
+      text-align: center;
+    }
+
+    .sub {
+      font-size: 14px;
+      text-align: center;
+      font-family: 'Pretendard variable', sans-serif;
+      line-height: 1.6;
+      /* 줄 간격 1.6배 */
+      margin-top: 20px;
+      /* 로고와의 간격 */
+      letter-spacing: 0.2px;
+      /* 자간 살짝 넓혀 자연스럽게 */
+      color: #dfdfdf;
+    }
+
+    .sub2 {
+      font-size: 14px;
+      text-align: center;
+      font-family: 'Pretendard variable', sans-serif;
+      line-height: 1.6;
+      /* 줄 간격 1.6배 */
+      margin-top: 20px;
+      /* 로고와의 간격 */
+      letter-spacing: 0.2px;
+      /* 자간 살짝 넓혀 자연스럽게 */
+      color: #9c9c9c;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: #999;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="index.html">
+      <!-- <image src="logo.png" class="logo"></image> -->
+      <div class="logo">
+      </div>
+    </a>
+    <ul class="nav">
+      <li class="menu"><a href="nature.html">Nature Escape</a></li>
+      <li class="menu"><a href="favorite.html">Favorite</a></li>
+      <li class="menu"><a href="healing.html">Healing Food</a></li>
+      <li class="menu"><a href="blog.html">Travelog</a></li>
+      <li class="menu"><a href="song.html">Song</a></li>
+    </ul>
+
+  </header>
+
+  </div>
+  <div class="maintext">
+    <div class="textwrap">
+      <img src="healingfood.jpg" class="logo_mid">
+      <!-- <h2 class="main">메인 텍스트</h2> -->
+      <p class="sub">" 그러고 보면 우리는 먹을 것이 행복에 중요한 사람들인가 보다.
+        <br> 이처럼 여러분도 스스로를 행복하게 하는것에 대해 잘 생각해볼 일이다.<br>
+        그런 것을 발견했다면 '행복은 oo야!"라고 한번 외쳐보길 바란다. 그걸 알아두면, 힘든 상황에서도 비교적 더 빨리 회복할 수 있을 테니까. "
+        <p class="sub2"> 김하나 x 황선우, < 여자 둘이 살고 있습니다>, p.172</p>
+    </div>
+  </div>
+  </div>
+
+  <div class="container">
+    <div class="box">
+      <!-- class를 두개 만들 필요 없이 space로 띄어주면 따로 인식 (ex. photo값 복붙 불필요) -->
+      <div class="photo placeA"></div>
+      <div class="phototext">
+        <br>
+        <p>오늘의 힐링푸드 one pick -
+          <br>카자흐스탄 사람들의 소울 푸드, '말고기'
+          <br><br>
+          가게에 들어가자마자 카자흐스탄 특유의 문양과 따뜻한 색감이 어우러진 인테리어가 가장 먼저 눈에 띄었다.
+          얇은 면 위에 양고기와 양파 소스를 얹은 카자흐스탄의 대표 음식인 '베슈바르막(Beshbarmak)'을 못 시켜서 대신 시킨 메뉴였지만, 첫 말고기 도전 치고는 입에 잘 맞았다.<br>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="box">
+      <div class="phototext2">
+        <br>
+        <p>오늘의 힐링푸드 one pick -
+          <br>맛과 가성비 모두 별5개였던 '스테이크'
+          <br><br>
+          카자흐스탄의 외식물가는 생각보다 저렴한 편은 아니지만, 한국에서 스테이크 1개를 먹는 가격에 훨씬 큰 스테이크 2개를 먹을 수 있었다. 블로그에서 어떤 사람은 미친 가성비와 맛 때문에 1일1스테이크
+          도전기를 하던데, 먹어보니 이해가 갔다. 내가 살면서 먹어본 스테이크 중 감히 1등이라 자부할 수 있다. <br>
+        </p>
+      </div>
+      <div class="photo placeB"></div>
+
+    </div>
+
+    <div class="box">
+      <div class="photo placeC"></div>
+      <div class="phototext">
+        <br>
+        <p>오늘의 힐링푸드 one pick -
+          <br>카자흐스탄 대표 양꼬치, "샤슬릭(Shashlych)"
+          <br><br>
+          설산을 보러 갔다가 맑은 하늘 아래에서 비와 우박을 맞고 쫄딱 젖은 채, 한여름에 택시 안에서 히터를 쐬며 시장으로 향했다.
+          하지만 늦어버려 시장 구경은 못 했고, 그때 우연히 저장해둔 샤슬릭 가게가 바로 옆에 있어서 행복했다.
+          내가 여태 먹던 양꼬치보다 열 배는 크고 맛있던 샤슬릭에 감탄하며 폭식했던 날.
+          한국에 돌아와서도 계속 생각난다. 다른 곳은 몰라도 여기는 두 번, 세 번 더 가고 싶다.<br>
+        </p>
+      </div>
+
+    </div>
+
+    <footer>© 2025 Breath in Almaty. All rights reserved.</footer>
+</body>
+
+</html>

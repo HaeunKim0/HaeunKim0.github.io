@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Breath in Almaty (Favorite) </title>
+  <style>
+    /* 별:html상에 있는 요소에게 모두 적용. 기본 margin padding값 초기화*/
+    * {
+      margin: 0;
+      padding: 0;
+      /* 박스 안으로. div 크기 변하지 않음 */
+      box-sizing: border-box;
+    }
+
+    ::-webkit-scrollbar {
+      width: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      height: 80px;
+      width: 90%;
+      left: 50%;
+      transform: translateX(-50%);
+      position: fixed;
+      background-color: white;
+      /* 흰색 배경 */
+      border-radius: 100px;
+      /* 둥근 모양 */
+      top: 30px;
+      padding: 10px 30px;
+      /* 안쪽 여백 */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      /* 부드러운 그림자 (선택사항) */
+      overflow: hidden;
+      /* 🧊 글래스모피즘 핵심 부분 */
+      background: rgba(255, 255, 255, 0.25);
+      /* 반투명 흰색 */
+      backdrop-filter: blur(10px);
+      /* 배경 블러 처리 */
+      -webkit-backdrop-filter: blur(10px);
+      /* 사파리 호환용 */
+
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      /* 유리 느낌의 테두리 */
+      border-radius: 100px;
+
+      padding: 10px 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      /* 부드러운 그림자 */
+      z-index: 10;
+    }
+
+    ::-webkit-scrollbar {
+      width: 0;
+    }
+
+    body {
+      height: 100vh;
+      /*강제로 늘릴 수 있음*/
+      background-image: url('nature_image2.png');
+      /* 이미지 파일 경로 */
+      background-size: cover;
+      /* 화면에 꽉 차게 */
+      background-repeat: no-repeat;
+      /* 반복 방지 */
+      background-position: center center;
+      /* 화면 중앙 정렬 */
+      background-attachment: fixed;
+    }
+
+    .nav {
+      display: flex;
+      margin: 20px 60px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      /* text-shadow: 0px 2px 5px rgb(178, 178, 178); */
+      color: #ffffff;
+      font-family: 'Times New Roman', Times, serif;
+      transition: 0.3s;
+    }
+
+    .menu {
+      display: flex;
+      height: 40px;
+      margin-right: 40px;
+      margin-left: 40px;
+    }
+
+    /* a:hover{
+        color: #3caac3;
+        transition: 0.3s;
+      } */
+
+    .logo {
+      height: 50px;
+      width: 200px;
+      background-position: center;
+      transform: translateY(5px);
+      background-image: url(logo.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    /* 본문 구조 */
+    .container {
+      width: 80%;
+      margin: 130px auto 30px auto;
+      /* 헤더 때문에 여백 추가 */
+      background-color: rgba(255, 255, 255, 0);
+      border-radius: 16px;
+      padding: 60px;
+      padding-top: 20px;
+      /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); */
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .favoritecoursename {
+      text-align: center;
+      margin: 40px auto;
+    }
+
+    .favoritecoursename img {
+      width: 400px;
+      /* 크기 조절 가능 */
+      height: auto;
+      display: inline-block;
+    }
+
+    .intro p {
+      color: #727272;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .course-section {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .course-section img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 30px;
+    }
+
+
+    .course-info {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-family: 'Pretendard variable', sans-serif;
+      line-height: 1.6;
+      font-size: 15px;
+      gap: 90%;
+    }
+
+    .info-item {
+      width: 45%;
+      margin-bottom: 25px;
+      line-height: 1.7;
+      color: #424242;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: #999;
+      font-size: 14px;
+    }
+
+    .coursename {
+      font-family: font-family: 'Pretendard variable', sans-serif;
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: #3caac3;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 헤더 -->
+  <header>
+    <a href="index.html">
+      <div class="logo"></div>
+    </a>
+    <ul class="nav">
+      <li class="menu"><a href="nature.html">Nature Escape</a></li>
+      <li class="menu"><a href="favorite.html">Favorite</a></li>
+      <li class="menu"><a href="healing.html">Healing Food</a></li>
+      <li class="menu"><a href="blog.html">Travelog</a></li>
+      <li class="menu"><a href="song.html">Song</a></li>
+    </ul>
+  </header>
+
+  <!-- 본문 -->
+  <div class="container">
+    <div class="favoritecoursename">
+      <img src="bigalmatylake.jpg" />
+    </div>
+
+    <section class="course-section">
+      <img src="favoritecourse.jpg" alt="최애코스" />
+      <!-- <h3 class="coursename">코스 정보</h3> -->
+      <div class="course-info">
+        <div class="info-item">
+          <strong>위치</strong>
+          <p>📍 카자흐스탄 알마티 남쪽 '트란스일리 알라타우(Trans-Ili Alatau) 산맥' 내</p>
+        </div>
+        <div class="info-item">
+          <strong>이동 거리</strong>
+          <p>🚗 알마티 시내 중심 자동차 - 약 30~40분 / 25~30km (편도 기준)</p>
+        </div>
+        <div class="info-item">
+          <strong>추천 시간</strong>
+          <p>🕒 9시 ~ 정오 전 - 햇살이 산맥 사이로 비추며 호수의 빛깔이 가장 선명하게<br>보이는 시간대 (햇빛이 협곡을 가장 아름답게 비출 때)</p>
+        </div>
+        <div class="info-item">
+          <strong>추천 이유</strong>
+          <p>💬 자연의 스케일과 색감이 만들어내는 감동, 잠시 멈춰 서게 만드는 고요함.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>© 2025 Breath in Almaty. All rights reserved.</footer>
+</body>
+
+</html>

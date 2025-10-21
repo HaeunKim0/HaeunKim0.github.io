@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Breath in Almaty (Blog) </title>
+  <style>
+    /* 별:html상에 있는 요소에게 모두 적용. 기본 margin padding값 초기화*/
+    * {
+      margin: 0;
+      padding: 0;
+      /* 박스 안으로. div 크기 변하지 않음 */
+      box-sizing: border-box;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      height: 80px;
+      width: 90%;
+      left: 50%;
+      transform: translateX(-50%);
+      position: fixed;
+      background-color: rgb(255, 255, 255);
+      /* 흰색 배경 */
+      border-radius: 100px;
+      /* 둥근 모양 */
+      top: 30px;
+      padding: 10px 30px;
+      /* 안쪽 여백 */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      /* 부드러운 그림자 (선택사항) */
+      overflow: hidden;
+      /* 🧊 글래스모피즘 핵심 부분 */
+      background: rgba(255, 255, 255, 0.25);
+      /* 반투명 흰색 */
+      backdrop-filter: blur(10px);
+      /* 배경 블러 처리 */
+      -webkit-backdrop-filter: blur(10px);
+      /* 사파리 호환용 */
+
+      border: 1px solid #ffffff;
+      /* 유리 느낌의 테두리 */
+      border-radius: 100px;
+
+      padding: 10px 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      /* 부드러운 그림자 */
+      z-index: 10;
+    }
+
+
+    ::-webkit-scrollbar {
+      width: 0;
+    }
+
+    body {
+      height: 310vh;
+      background-image: url(main_image.png);
+      background-size:cover;
+      background-repeat:no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
+    }
+
+    .nav {
+      display: flex;
+      margin: 20px 60px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: #ffffff;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .menu {
+      display: flex;
+      height: 40px;
+      margin-right: 40px;
+      margin-left: 40px;
+    }
+
+    .logo {
+      height: 50px;
+      width: 200px;
+      background-position: center;
+      transform: translateY(5px);
+      background-image: url(logo.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    /* ===== 본문 컨테이너 ===== */
+    .container {
+      max-width: 1100px;
+      margin: 160px auto 80px auto;
+      margin-top: 180px;
+      height: 290vh;
+      background-color: #ffffff;
+      padding: 40px 60px;
+      border-radius: 30px;
+      font-family: 'Pretendard variable', sans-serif;
+    }
+
+    .author-bar {
+      border-bottom: 1px solid #2d4b1c48;
+      font-size: 14px;
+      color: gray;
+      padding-bottom: 20px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .post-header {
+      margin-bottom: 25px;
+    }
+
+    .post-category {
+      font-size: 15px;
+      color: #2d4b1cc0;
+    }
+
+    .post-title {
+      font-size: 28px;
+      font-weight: 600;
+      margin: 15px 0;
+      color: #3f642a;
+    }
+
+    .post-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: #575757;
+    }
+
+    /* 내 블로그 프로필 이미지로 바꾸기 */
+    .circle {
+      width: 20px;
+      height: 20px;
+      background-color: #2d4b1c;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .post-date {
+      font-size: 12px;
+      color: #2d4b1c;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #2d4b1c48;
+      margin: 20px 0 30px 0;
+    }
+
+    /* ===== 본문 내용 ===== */
+    .post-content {
+      text-align: center;
+      line-height: 1.8;
+      font-size: 16px;
+      color: #575757
+    }
+
+    .divider {
+      width: 1px;
+      height: 30px;
+      background-color: #2d4b1c;
+      margin: 30px auto;
+    }
+
+    .post-image {
+      width: 80%;
+      height: 300px;
+      margin: 0 auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* 본문 전체를 이미지 폭 기준으로 중앙 정렬 */
+    .post-inner {
+      width: 80%;
+      /* 이미지 width와 동일하게 설정 */
+      margin: 0 auto;
+      /* 중앙 정렬 */
+    }
+
+    /* 이미지도 폭 100%로 조정해서 .post-inner 안에서 꽉 차게 */
+    .post-image {
+      width: 100%;
+      height: auto;
+      margin-top: 30px;
+      object-fit: cover;
+    }
+
+    .post-gif {
+      width: 20%;
+      height: auto;
+      margin-top: 30px;
+      object-fit: cover;
+    }
+
+    footer {
+      text-align: center;
+      color: #ffffff;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="index.html">
+      <!-- <image src="logo.png" class="logo"></image> -->
+      <div class="logo">
+      </div>
+    </a>
+    <ul class="nav">
+      <li class="menu"><a href="nature.html">Nature Escape</a></li>
+      <li class="menu"><a href="favorite.html">Favorite</a></li>
+      <li class="menu"><a href="healing.html">Healing Food</a></li>
+      <li class="menu"><a href="blog.html">Travelog</a></li>
+      <li class="menu"><a href="song.html">Song</a></li>
+    </ul>
+
+  </header>
+
+  <div class="container">
+    <div class="author-bar"><strong>wendybelly</strong> 의 하루</div>
+
+    <div class="post-inner">
+      <div class="post-header">
+        <div class="post-category">Travel Note</div>
+        <div class="post-title">나를 숨 쉬게 해줬던, 알마티가 유독 그리운 날</div>
+        <div class="post-info">
+          <div class="circle"></div>
+          <div>wendybelly</div>
+          <div class="post-date">2025.10.21</div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="post-content">
+        <p><br>요즘들어 유독 알마티가 그립다.
+          <br>사진 속 푸른 하늘과 산맥, 바람 냄새까지 아직도 생생하게 기억난다.<br></p>
+        <div class="divider"></div>
+        <img src="slowimg-sky.JPG" alt="게시글 이미지" class="post-image" /><br>
+        <p><br>벌써 여름이 가고, 어느새 가을이 스치더니
+          어제는 갑자기 겨울이 찾아왔다.<br><br>
+          다시 바쁜 일상 속으로 돌아와 정신없이 하루하루를 보내고 있지만,
+          이렇게 사진을 뒤적이며
+          <br>그날의 공기와 감정을 다시 떠올리다 보면
+          잠시 숨을 고를 수 있는 것 같다.<br><br>
+
+          또 한 계절을 열심히 달려온 나에게 셀프 쓰담쓰담,,<br>
+</p>
+        <img src="slow-gif.gif" alt="게시글 gif" class="post-gif" />
+      </div>
+    </div>
+  </div>
+
+  <footer>© 2025 Breath in Almaty</footer>
+</body>
+
+</html>
